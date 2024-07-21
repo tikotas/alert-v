@@ -3,13 +3,20 @@ import {Modal, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} fro
 
 import {customStyles} from "../utils/styleHelper"
 import {COLORS} from "../constants/colors"
-import {AlertProps} from "../types"
+import {AlertTypes} from "../types"
+
+interface ProviderAlertType extends AlertTypes {
+    showAlert?: boolean
+    setShowAlert?: (show: boolean) => void
+}
 
 
-export const CustomAlert: FC<AlertProps> = (
+export const CustomAlert: FC<ProviderAlertType> = (
     {
         showAlert = false,
         setShowAlert,
+        modalTransparencyStyle,
+        containerStyle,
         textWrapperStyle,
         title,
         titleStyle,
@@ -24,7 +31,7 @@ export const CustomAlert: FC<AlertProps> = (
         singleButton = false,
         backdropPress = false,
     }) => {
-    if (!setShowAlert) return
+
     const handleCancel = () => {
         if (cancelOnPress) {
             cancelOnPress()
@@ -55,8 +62,8 @@ export const CustomAlert: FC<AlertProps> = (
                 onPress={activateBackDropPress}
                 activeOpacity={1}
             >
-                <View style={styles.modalInner}>
-                    <View style={styles.blockWrapper}>
+                <View style={[styles.modalInner, modalTransparencyStyle]}>
+                    <View style={[styles.blockWrapper, containerStyle]}>
                         <View style={[styles.textWrapper, textWrapperStyle]}>
                             {title && (
                                 <Text style={[styles.title, titleStyle]}>

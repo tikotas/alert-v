@@ -1,8 +1,13 @@
 import createGenericContext from "../utils/createGenericContext"
-import {AlertProps} from "../types"
+import {AlertTypes} from "../types"
+
+interface ProviderAlertType extends AlertTypes {
+    showAlert?: boolean
+    setShowAlert?: (show: boolean) => void
+}
 
 type AlertContextType = {
-    showAlert: (props: AlertProps) => void
+    showAlert: (props: ProviderAlertType) => void
     hideAlert: () => void
 }
 
