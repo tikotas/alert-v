@@ -1,8 +1,4 @@
 import { TextStyle, ViewStyle } from "react-native";
-export type AlertContextType = {
-    showAlert: (props: AlertProps) => void;
-    hideAlert: () => void;
-};
 export type AlertProps = {
     showAlert?: boolean;
     setShowAlert?: (show: boolean) => void;
