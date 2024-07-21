@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
-import { AlertProps } from "../types";
+import { AlertTypes } from "../types";
 export declare const AlertProvider: FC<PropsWithChildren>;
 export declare const AlertV: {
-    show: (props: AlertProps) => void;
+    show: (props: AlertTypes) => void;
     hide: () => void;
 };

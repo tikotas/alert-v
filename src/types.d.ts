@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle } from "react-native";
-export type AlertProps = {
-    showAlert?: boolean;
-    setShowAlert?: (show: boolean) => void;
+export type AlertTypes = {
+    modalTransparencyStyle?: ViewStyle;
+    containerStyle?: ViewStyle;
     textWrapperStyle?: ViewStyle;
     title: string;
     titleStyle?: TextStyle;
@@ -11,7 +11,7 @@ export type AlertProps = {
     cancelStyle?: TextStyle;
     confirmButtonTitle?: string;
     confirmStyle?: TextStyle;
-    cancelOnPress?: () => void;
+    cancelOnPress: () => void;
     confirmOnPress?: () => void;
     singleButton?: boolean;
     backdropPress?: boolean;
